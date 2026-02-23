@@ -1,13 +1,26 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function PatientsPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const navbar = document.getElementById('navbar');
     if (!navbar) return undefined;
     const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 80);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 900) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   return (
@@ -40,6 +53,25 @@ export default function PatientsPage() {
             <li><a href="/patients">Patients</a></li>
             <li><a href="/referring-doctors">Referring Doctors</a></li>
             <li><a href="/#contact" className="nav-cta">Contact Us</a></li>
+          </ul>
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            aria-label="Open menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-menu"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <ul id="mobile-nav-menu" className={`mobile-nav-menu${mobileMenuOpen ? ' open' : ''}`}>
+            <li><a href="/#services" onClick={() => setMobileMenuOpen(false)}>Procedures</a></li>
+            <li><a href="/#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
+            <li><a href="/patients" onClick={() => setMobileMenuOpen(false)}>Patients</a></li>
+            <li><a href="/referring-doctors" onClick={() => setMobileMenuOpen(false)}>Referring Doctors</a></li>
+            <li><a href="/#contact" className="mobile-nav-cta" onClick={() => setMobileMenuOpen(false)}>Contact Us</a></li>
           </ul>
         </nav>
 
