@@ -104,15 +104,15 @@ export default function HomePage() {
           </ul>
           <button
             type="button"
-            className="mobile-menu-btn"
+            className={`mobile-menu-btn${mobileMenuOpen ? ' open' : ''}`}
             aria-label="Open menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav-menu"
             onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            <span />
-            <span />
-            <span />
+            <svg className="mobile-menu-icon" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5 8l5 5 5-5" />
+            </svg>
           </button>
           <ul id="mobile-nav-menu" className={`mobile-nav-menu${mobileMenuOpen ? ' open' : ''}`}>
             <li><a href="#services" onClick={() => setMobileMenuOpen(false)}>Procedures</a></li>
