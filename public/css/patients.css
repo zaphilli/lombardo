@@ -2,11 +2,11 @@
    PATIENTS PAGE — STYLES
    ============================================================ */
 
-body.patients-page {
+.patients-page {
   background: linear-gradient(180deg, #f9f6ee 0%, #fbfaf4 100%);
 }
 
-body.patients-page nav {
+.patients-page nav {
   position: sticky;
   background: rgba(8, 49, 73, 0.9);
 }

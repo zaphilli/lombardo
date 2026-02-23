@@ -2,7 +2,7 @@
    REFERRING DOCTORS PAGE — STYLES
    ============================================================ */
 
-body.referring-page {
+.referring-page {
   background: linear-gradient(165deg, #0c3a55 0%, #0f5678 55%, #186f90 100%);
   color: #fff;
   min-height: 100vh;
