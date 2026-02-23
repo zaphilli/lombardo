@@ -1,0 +1,285 @@
+/* ============================================================
+   REFERRING DOCTORS PAGE — STYLES
+   ============================================================ */
+
+body.referring-page {
+  background: linear-gradient(165deg, #0c3a55 0%, #0f5678 55%, #186f90 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── BACKGROUND DECORATION ── */
+.bg-deco {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-deco::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgba(216, 177, 115, 0.2);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg-deco::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(125, 185, 179, 0.24);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(216, 177, 115, 0.2) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── REFERRING NAV ── */
+nav.referring-nav {
+  position: sticky;
+  background: rgba(8, 44, 65, 0.74);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 60px;
+  z-index: 50;
+}
+
+.nav-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 42px; height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--gold);
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #fff;
+  display: block;
+}
+
+.brand-sub {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-top: 2px;
+}
+
+.nav-back-link {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247, 252, 255, 0.68);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-back-link:hover { color: var(--gold); }
+
+/* ── MAIN ── */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.center-card {
+  text-align: center;
+  max-width: 640px;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── EYEBROW ── */
+.eyebrow {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+/* ── HEADING ── */
+.center-card h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.12;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.center-card h1 em { font-style: italic; color: var(--gold-light); }
+
+.descriptor {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(244, 251, 255, 0.8);
+  margin-bottom: 52px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── CTA BUTTON ── */
+.cta-wrap { margin-bottom: 52px; }
+
+.btn-refer {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  padding: 20px 48px;
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-refer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.btn-refer:hover::before { transform: translateX(0); }
+
+.btn-refer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(184, 154, 94, 0.35);
+}
+
+.btn-icon { font-size: 1.1rem; transition: transform 0.2s; }
+.btn-refer:hover .btn-icon { transform: translateX(4px); }
+
+/* ── INFO STRIPS ── */
+.info-strips {
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  background: rgba(248, 255, 255, 0.08);
+}
+
+.strip {
+  flex: 1;
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.strip:last-child { border-right: none; }
+
+.strip-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 252, 255, 0.72);
+}
+
+.strip-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.93);
+}
+
+.strip-val a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+.strip-val a:hover { color: var(--gold-light); }
+
+/* ── FOOTER ── */
+footer.referring-footer {
+  text-align: center;
+  padding: 24px 30px;
+  border-top: 1px solid rgba(216, 177, 115, 0.24);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(247, 252, 255, 0.56);
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav.referring-nav { padding: 20px 24px; }
+  .info-strips { flex-direction: column; }
+  .strip { border-right: none; border-bottom: 1px solid var(--border); }
+  .strip:last-child { border-bottom: none; }
+  .btn-refer { padding: 18px 32px; }
+}
